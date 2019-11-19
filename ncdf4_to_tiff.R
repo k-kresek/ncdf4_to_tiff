@@ -1,20 +1,31 @@
-.libPaths()
-
+# Install relevant packages
 install.packages("raster")
 install.packages("ncdf4")
 install.packages("Rcpp")
 install.packages("rgdal")
 
+# Load raster package
 library(raster)
 
-fname <- "C3S-LC-L4-LCCS-Map-300m-P1Y-2018-v2.1.1.nc"
-HadISST.b <- brick(fname)  
+# Sometimes loading the raster package throws an error. 
+# If this happens, run line 12 and reinstall the packages.
+#.libPaths()
 
-r.esa2018 <- raster(fname)
+# Create your brick
+fname <- "myfile.nc"
+file.b <- brick(fname)  
 
-HadISST.b
-plot(HadISST.b)
+# Load and visualize your file
+file.b
+plot(file.b)
 
-esa_2018.tiff <- 'esa_2018.tiff'
+# The following steps will convert the .nc file to a raster (.tiff format)
 
-writeRaster(r.esa2018, filename = esa_2018.tiff, format = 'GTiff', overwrite = T)
+# Initiate your .tiff file
+my_raster.tiff <- 'my_raster.tiff'
+
+# Convert your .nc file to a raster
+r.myfile <- raster(fname)
+
+# Write to your .tiff file
+writeRaster(r.myfile, filename = my_raster.tiff, format = 'GTiff', overwrite = T)
