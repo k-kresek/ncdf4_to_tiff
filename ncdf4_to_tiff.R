@@ -1,3 +1,7 @@
+## Kai Kresek, 19112019
+## .nc to .tiff conversion
+## This presents a quick and easy way to convert your ncdf4 (.nc) files to raster (.tiff) format.
+
 # Install relevant packages
 install.packages("raster")
 install.packages("ncdf4")
